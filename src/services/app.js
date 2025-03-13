@@ -3,8 +3,14 @@ import DataService from './DataService.js';
 const dataService = new DataService();
 const books = dataService.getBooksData();
 
+console.log('Books data:', books); // Add this line to log the books data
+
 function displayBooks(books) {
     const container = document.getElementById('books-container');
+    if (!container) {
+        console.error('Element with ID "books-container" not found'); // Add this line to check if the container exists
+        return;
+    }
     container.innerHTML = '';
     books.forEach(book => {
         const div = document.createElement('div');
@@ -23,7 +29,7 @@ function orderByAuthor() {
     displayBooks(sortedBooks);
 }
 
-function orderByYop() {
+function  () {
     const sortedBooks = [...books].sort((a, b) => a.compareByYop(b));
     displayBooks(sortedBooks);
 }
